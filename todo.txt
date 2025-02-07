@@ -2,5 +2,6 @@
     a: new environment
     b: setup.py
     c: requirements.txt
-    
-2 👎
+
+2 👎 
+    a: src folder and build the packages
