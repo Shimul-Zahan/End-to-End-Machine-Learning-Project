@@ -44,6 +44,13 @@ class DataIngestion:
             test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
             logging.info("Ingestion of data is complete")
             
+            # get all the categorical and numerical features 
+            categorical_columns = [column for column in dataset.columns if dataset[column].dtype == 'object']
+            numerical_columns = [column for column in dataset.columns if dataset[column].dtype != 'object']
+            
+            print(categorical_columns, numerical_columns)
+        
+            
             return(
                 self.ingestion_config.train_data_path,
                 self.ingestion_config.test_data_path
