@@ -1,0 +1,5 @@
+2025-02-08 00:43:38,672 - root - INFO - data_ingestion.py:31 - Enter the data ingestions method or components
+2025-02-08 00:43:38,676 - root - INFO - data_ingestion.py:34 - shape of datasets here is (1000, 8)
+2025-02-08 00:43:38,676 - root - INFO - data_ingestion.py:35 - read the dataset ad dataframe
+2025-02-08 00:43:38,682 - root - INFO - data_ingestion.py:39 - Train test split here
+2025-02-08 00:43:38,689 - root - INFO - data_ingestion.py:45 - Ingestion of data is complete
