@@ -5,3 +5,6 @@
 
 2 👎 
     a: src folder and build the packages
+    b: projects structure / components / modules
+    c: logging
+    d: exception handling
