@@ -1,1 +1,6 @@
-Heres the todo steps file for this projects
+1 👎
+    a: new environment
+    b: setup.py
+    c: requirements.txt
+    
+2 👎
