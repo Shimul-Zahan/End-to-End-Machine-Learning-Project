@@ -1,4 +1,16 @@
 numpy
 pandas
+ipykernel
+matplotlib
 seaborn
+flask
+streamlit
+scipy
+scikit-learn
+plotly
+nbformat
+kagglehub
+graphviz
+pydotplus
+kneed
 -e .
