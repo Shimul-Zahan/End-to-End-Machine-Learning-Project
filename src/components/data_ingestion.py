@@ -16,6 +16,7 @@ from dataclasses import dataclass
 from src.logger import logging
 from src.exception import CustomException
 from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 
 
 # read datasets from local storage
@@ -69,7 +70,17 @@ if __name__ == "__main__":
     
     # data_transformation object here
     data_transformaton = DataTransformation()
-    data_transformaton.initiate_data_transformation(
+    train_array, test_array, data_preprocessor_path = data_transformaton.initiate_data_transformation(
         train_data_path=train_data_path,
         test_data_path=test_data_path
     )
+    
+    # Model trainer object here
+    model_trainer = ModelTrainer()
+    model_trainer.initiate_model_trainier(
+        train_array=train_array, 
+        test_array=test_array,
+        preprocessor_path=data_preprocessor_path,
+    )
+    
+    
