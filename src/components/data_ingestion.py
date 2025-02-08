@@ -80,7 +80,7 @@ if __name__ == "__main__":
     model_trainer.initiate_model_trainier(
         train_array=train_array, 
         test_array=test_array,
-        preprocessor_path=data_preprocessor_path,
+        # preprocessor_path=data_preprocessor_path,
     )
     
     

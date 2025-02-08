@@ -30,7 +30,7 @@ class ModelTrainer:
     def __init__(self):
         self.train_model_file_path_config = ModelTrainerConfig()
         
-    def initiate_model_trainier(self, train_array, test_array, preprocessor_path):
+    def initiate_model_trainier(self, train_array, test_array):
         try:
             logging.info("Split the train test data")
             # print(pd.DataFrame(train_array), test_array, preprocessor_path)
@@ -61,8 +61,28 @@ class ModelTrainer:
                 models=models
             )
             
-            best_model_score = max(sorted(model_report.values()))
-            # get the best model name
+            # Identify the best model based on the highest test score
+            best_model_name = max(model_report, key=model_report.get)
+            best_model = models[best_model_name]
+            best_model_score = model_report[best_model_name]
+            
+            ''' 
+            print(f"best model name: {best_model_name}")
+            print(f"best model: {best_model}")
+            print(f"best model score: {best_model_score}")
+            best model name: LR
+            best model: LinearRegression()
+            best model score: 0.8804332983749565
+            '''
+            
+            save_file(
+                file_path=self.train_model_file_path_config.train_model_file_path,
+                obj=best_model
+            )
+            
+            logging.info(f"Best Model Found: {best_model_name} with score: {best_model_score}")
+            
+            return best_model_name, best_model_score
         
         except Exception as ex:
             raise CustomException(ex, sys)
