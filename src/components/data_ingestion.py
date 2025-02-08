@@ -9,11 +9,13 @@
 
 import os
 import sys
-from src.exception import CustomException
-from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+
+from src.logger import logging
+from src.exception import CustomException
+from src.components.data_transformation import DataTransformation
 
 
 # read datasets from local storage
@@ -45,10 +47,10 @@ class DataIngestion:
             logging.info("Ingestion of data is complete")
             
             # get all the categorical and numerical features 
-            categorical_columns = [column for column in dataset.columns if dataset[column].dtype == 'object']
-            numerical_columns = [column for column in dataset.columns if dataset[column].dtype != 'object']
+            # categorical_columns = [column for column in dataset.columns if dataset[column].dtype == 'object']
+            # numerical_columns = [column for column in dataset.columns if dataset[column].dtype != 'object']
             
-            print(dataset['math_score'])
+            # print(dataset['math_score'])
         
             
             return(
@@ -61,5 +63,13 @@ class DataIngestion:
         
 
 if __name__ == "__main__":
+    # data_ingestion object here
     data_ingestion_obj = DataIngestion()
-    data_ingestion_obj.initiate_data_ingestion()
+    train_data_path, test_data_path = data_ingestion_obj.initiate_data_ingestion()
+    
+    # data_transformation object here
+    data_transformaton = DataTransformation()
+    data_transformaton.initiate_data_transformation(
+        train_data_path=train_data_path,
+        test_data_path=test_data_path
+    )
