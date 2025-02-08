@@ -6,6 +6,7 @@ from dataclasses import dataclass
 
 from src.logger import logging
 from src.exception import CustomException
+from src.utils import save_file
 
 import numpy as np
 import pandas as pd
@@ -14,7 +15,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.impute import SimpleImputer       # for the missing value
 from sklearn.pipeline import Pipeline          # for create the pipeline
 
-
+@dataclass
 class DataTransformationConfig:
     preprocessor_pickle_file_path = os.path.join('artifacts', 'preprocessor.pkl')
     
@@ -101,6 +102,11 @@ class DataTransformation:
                 test_array = np.c_[X_test_scaled, np.array(y_test).reshape(-1, 1)]
                 
                 logging.info("Saved preprocessing object")
+                
+                save_file(
+                    file_path = self.data_transformation_config.preprocessor_pickle_file_path,
+                    obj = transformer
+                )
                 
                 return(
                     train_array,

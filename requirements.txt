@@ -13,4 +13,5 @@ kagglehub
 graphviz
 pydotplus
 kneed
+dill
 -e .
