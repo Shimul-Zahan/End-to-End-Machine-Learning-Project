@@ -1,5 +1,17 @@
-/venv
-/ML_Project.egg-info
-/logs
-/artifacts
-/notebook
+# Ignore virtual environment folder
+/venv/
+
+# Ignore Python package metadata
+/ML_Project.egg-info/
+
+# Ignore log files
+/logs/
+
+# Ignore model artifacts (e.g., trained models)
+/artifacts/
+
+# Ignore Jupyter notebook files directory
+/notebook/
+
+# Ignore Data directory within the notebook folder (if applicable)
+E:/End to End ML Project/End to End ANN/notebook/Data/
