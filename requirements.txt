@@ -15,4 +15,5 @@ pydotplus
 kneed
 dill
 xgboost
+tensorflow
 -e .
