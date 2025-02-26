@@ -16,4 +16,6 @@ kneed
 dill
 xgboost
 tensorflow
+keras
+scikeras
 -e .
